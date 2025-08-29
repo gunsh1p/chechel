@@ -1,0 +1,13 @@
+stages:
+  - test
+
+test-python-app:
+  stage: test
+  image: python:3.9
+  tags:
+    - students-buildkit-medium
+  script:
+    - python -m venv venv
+    - source venv/bin/activate о
+    - pip install -r backend/requirements.txt
+    - pytest backend/tests/test_auth.py -v
